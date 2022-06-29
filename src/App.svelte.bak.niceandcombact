@@ -1,3 +1,14 @@
+setTimeout(function(){ roll() }, 450);
+      setTimeout(function(){ roll() }, 750);
+      setTimeout(function(){ roll() }, 1050);
+      setTimeout(function(){ roll() }, 1350);
+      setTimeout(function(){ roll() }, 1450);
+      setTimeout(function(){ roll() }, 1550);
+      setTimeout(function(){ roll() }, 1600);
+
+      perfection
+
+
 <script>
   import { onMount } from 'svelte';
   onMount(() => {

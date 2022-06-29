@@ -62,6 +62,14 @@
       boxDown = num;
 
 
+      setTimeout(function(){ roll() }, 450);
+            setTimeout(function(){ roll() }, 750);
+            setTimeout(function(){ roll() }, 1050);
+            setTimeout(function(){ roll() }, 1350);
+            setTimeout(function(){ roll() }, 1450);
+          //  setTimeout(function(){ roll() }, 1550);
+          //  setTimeout(function(){ roll() }, 1600);
+
       setTimeout(function(){
         rollActive = false;
 
@@ -74,9 +82,6 @@
           result = 'You rolled ' + document.getElementById(state).childNodes[0].innerHTML;
         }
       }, 1600);
-
-
-
     }
 
     if (keyCode == 39){
@@ -104,6 +109,28 @@
     }
 
 	}
+
+  function roll(){
+    boxRight = boxRight - 1;
+    if (boxRight == 0) {
+      boxRight = 6;
+    }
+
+    boxLeft = boxLeft - 1;
+    if (boxLeft == 0) {
+      boxLeft = 6;
+    }
+
+    boxUp = boxUp - 1;
+    if (boxUp == 0) {
+      boxUp = 6;
+    }
+
+    boxDown = boxDown - 1;
+    if (boxDown == 0) {
+      boxDown = 6;
+    }
+  }
 </script>
 
 <svelte:window on:keydown={handleKeydown}/>
