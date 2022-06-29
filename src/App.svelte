@@ -5,8 +5,9 @@
 
   let key;
   let keyCode;
-  let state = 'right';
+  let state = 'none';
   let result = 'Press space to roll';
+  let rollActive = false;
   let boxRight = 6;
   let boxLeft = 5;
   let boxUp = 6;
@@ -22,9 +23,24 @@
     //window.alert("wow" + keyCode);
 
     if (keyCode == 32){
+      state = 'none';
+      document.getElementById('up').classList.remove('selected')
+      document.getElementById('down').classList.remove('selected')
+      document.getElementById('left').classList.remove('selected')
+      document.getElementById('right').classList.remove('selected')
+      document.getElementById('none').classList.remove('selected')
+      document.getElementById('none').innerHTML = '&nbsp;';
+
       //window.alert("roll");
-      window.alert(getRandomInt(7));
+      //window.alert(getRandomInt(7));
+      rollActive = true;
       let num = getRandomInt(7);
+
+      // edge case
+      if (num == 0) {
+        num = 6;
+      }
+
       boxLeft = num
 
       if ((num - 1) == 0){
@@ -45,7 +61,21 @@
       num = num - 1;
       boxDown = num;
 
-      result = 'You rolled 1';
+
+      setTimeout(function(){
+        rollActive = false;
+
+        if (state == 'none') {
+          document.getElementById('none').innerHTML = "1";
+          result = 'You rolled 1';
+          document.getElementById(state).classList.add('selected')
+        } else {
+          document.getElementById(state).classList.add('selected')
+          result = 'You rolled ' + document.getElementById(state).childNodes[0].innerHTML;
+        }
+      }, 1600);
+
+
 
     }
 
@@ -81,9 +111,11 @@
 <html data-theme="retro" lang="en">
 <body>
 
-<div style="position: absolute;right:100px;top:100px;">
-<div class="lds-ring"><div></div><div></div><div></div><div></div></div>
-</div>
+{#if rollActive}
+  <div style="position: absolute;right:100px;top:100px;">
+  <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+  </div>
+{/if}
 
 <div style="padding-top: 10%;padding-bottom: 10%;padding-left: 10%;">
     <div class="flex text-6xl">
@@ -110,13 +142,13 @@
         </div>
         </div>
         <div class="w-1/3">
-        <div class="sq">
-        k
+        <div id="none" class="sq">
+        &nbsp;
         </div>
         </div>
         <div class="w-1/3">
         <div id="right">
-        <div class="sq" id="selected">
+        <div class="sq">
           {boxLeft}
         </div>
         </div>
@@ -163,7 +195,7 @@ body {
   margin:4px;
   text-align: center;
 }
-#selected {
+:global(.selected) {
   font-family: german, monospace;
   color:  white;
   font-weight: bolder;
