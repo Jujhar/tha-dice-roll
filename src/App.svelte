@@ -215,10 +215,10 @@
 }
 
 body {
-  background-color: darksalmon;
+  background-color: #ac6b29;
 }
 .sq {
-  border: 2px solid indigo;width:85px;
+  border: 2px solid #A6C7BE;width:85px;
   margin:4px;
   text-align: center;
 }
