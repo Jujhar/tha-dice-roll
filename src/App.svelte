@@ -199,7 +199,7 @@
     </div>
 </div>
 
-<div class="text-center text-white" style="padding-top: 1%;padding-bottom: 1%;padding-left: 10%;">
+<div class="text-center text-white" style="padding-top: 1%;padding-bottom: 1%;padding-left: 32%;">
   {result}
 <div>
 
