@@ -8,10 +8,10 @@
   let state = 'none';
   let result = 'Press space to roll';
   let rollActive = false;
-  let boxRight = 6;
+  let boxRight = 4;
   let boxLeft = 5;
   let boxUp = 6;
-  let boxDown = 1;
+  let boxDown = 3;
 
   function getRandomInt(max) {
   return Math.floor(Math.random() * max);
